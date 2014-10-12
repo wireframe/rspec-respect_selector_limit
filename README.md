@@ -18,12 +18,9 @@ it 'validates application.css' do
   expect('application.css').to respect_selector_limit
 end
 
-# advanced protip to scan all precompiled CSS files
-it 'validates all CSS files' do
-  css_files = Rails.application.assets.each_logical_path(*Rails.application.config.assets.precompile).to_a.grep(/\.css/)
-  css_files.each do |file|
-    expect(file).to respect_selector_limit
-  end
+# (optional) validate all configured CSS files
+it 'validates all precompiled CSS files' do
+  expect(precompiled_css_files).to respect_selector_limit
 end
 ```
 
