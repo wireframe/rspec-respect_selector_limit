@@ -1,2 +1,2 @@
-require 'respect_selector_limit/precompiled_css_files'
-require 'respect_selector_limit/respect_selector_limit_matcher'
+require 'rspec/respect_selector_limit/precompiled_css_files'
+require 'rspec/respect_selector_limit/respect_selector_limit_matcher'
