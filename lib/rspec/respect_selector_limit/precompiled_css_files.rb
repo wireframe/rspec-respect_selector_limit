@@ -1,3 +1,5 @@
+require 'rspec'
+
 module PrecompiledCssFiles
   def precompiled_css_files
     app = Rails.application
