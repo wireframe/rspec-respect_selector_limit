@@ -26,7 +26,14 @@ RSpec::Matchers.define :respect_selector_limit do
     @failed_assets.empty?
   end
 
-  failure_message do |asset|
+  failure_message_proc = lambda do |asset|
     "#{@failed_assets} have more than #{max_selectors} CSS selectors"
+  end
+
+  if respond_to?(:failure_message)
+    failure_message(&failure_message_proc)
+  else
+    # RSpec 2 compatibility:
+    failure_message_for_should(&failure_message_proc)
   end
 end
