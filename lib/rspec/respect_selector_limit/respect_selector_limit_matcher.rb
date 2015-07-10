@@ -7,7 +7,7 @@ RSpec::Matchers.define :respect_selector_limit do
   end
 
   def valid_asset?(asset)
-    css = Rails.application.assets[asset].body
+    css = Rails.application.assets[asset].to_s
 
     parser = CssParser::Parser.new
     parser.add_block!(css)
